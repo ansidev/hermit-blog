@@ -19,3 +19,11 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('test', function()
+{
+Mail::send('Emails.test', [], function ($message)
+{
+    $message->to('ansidev@gmail.com', 'HisName')->subject('Welcome!');
+});
+});
