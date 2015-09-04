@@ -13,6 +13,10 @@
 
 Route::get('/', 'PagesController@index');
 
+Route::get('/about-me', function() {
+	return view('about');
+});
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
