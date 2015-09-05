@@ -22,6 +22,19 @@ Route::get('/about-me', function() {
 });
 
 Route::get('home', 'HomeController@index');
+Route::get('item-locator', 'ItemsController@index');
+Route::get('item-locator/items', [
+	'as' => 'items.index',
+	'uses' => 'ItemsController@index'
+]);
+Route::post('item-locator/items/add', [
+	'as' => 'items.store',
+	'uses' => 'ItemsController@store'
+]);
+Route::get('item-locator/items/add', [
+	'as' => 'items.add',
+	'uses' => 'ItemsController@add'
+]);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
