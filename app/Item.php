@@ -11,6 +11,7 @@ class Item extends Model {
 		'parent_name',
 		'parent_id',
 		'location_name',
-		'location_id'
+		'location_id',
+		'childable'
 	];
 }
