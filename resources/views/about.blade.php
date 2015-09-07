@@ -123,7 +123,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact me</h2>
                 <p>Feel free to email me to provide some feedback on my blog, give me suggestions for my blog, ask me something or to just say hello!</p>
-                <p><a href="mailto:legoiv@outlook.com">legoiv@outlook.com</a>
+                <p><a href="mailto:ansidev@gmail.com">ansidev@gmail.com</a>
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
@@ -131,7 +131,7 @@
                     </li>
                     <li>
                         <!-- <a href="https://facebook.com/ansidevpy" class="btn btn-default btn-lg"><i class="icon-facebook"></i> <span class="network-name">Facebook</span></a> -->
-                        <a href="https://facebook.com/ansidevpy" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                        <a href="https://facebook.com/ansidev" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
                     </li>
                     <li>
                         <a href="https://github.com/ansidev" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
