@@ -8,6 +8,7 @@ class Item extends Model {
 
 	protected $fillable = [
 		'name',
+		'quantity',
 		'parent_name',
 		'parent_id',
 		'location_name',
