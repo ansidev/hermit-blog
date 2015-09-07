@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h1>All Items <a href="{{ route('items.add') }}" class="btn btn-success">Add new</a></h1>
+            <h1><a href="{{ route('items.index') }}" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Go to index</a> {{ $item->name }}</h1>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -18,9 +18,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($items as $item)
                         <tr>
-                            <td><a href="{{ route('items.show', $item->id) }}" class="btn btn-default">#{{ $item->id }}</a></td>
+                            <td>#{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->quantity }}</td>
                             <td>{{ $item->parent_name }}</td>
@@ -31,7 +30,6 @@
                                 <a href="{{ route('items.delete', $item->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
