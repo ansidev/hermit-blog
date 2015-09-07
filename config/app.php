@@ -137,6 +137,7 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 		// Custom Provider
 		'Illuminate\Html\HtmlServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
