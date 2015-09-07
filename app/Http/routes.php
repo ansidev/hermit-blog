@@ -17,23 +17,48 @@ Route::get('/', function() {
 	return view('about');
 });
 
+Route::get('home', 'HomeController@index');
+
 Route::get('/about-me', function() {
 	return view('about');
 });
 
-Route::get('home', 'HomeController@index');
 Route::get('item-locator', 'ItemsController@index');
 Route::get('item-locator/items', [
 	'as' => 'items.index',
 	'uses' => 'ItemsController@index'
 ]);
+
+Route::get('item-locator/items/add', [
+	'as' => 'items.add',
+	'uses' => 'ItemsController@add'
+]);
 Route::post('item-locator/items/add', [
 	'as' => 'items.store',
 	'uses' => 'ItemsController@store'
 ]);
-Route::get('item-locator/items/add', [
-	'as' => 'items.add',
-	'uses' => 'ItemsController@add'
+
+Route::get('item-locator/items/{id}/edit', [
+    'as' => 'items.edit',
+    'uses' => 'ItemsController@edit'
+]);
+Route::put('item-locator/items/{id}', [
+    'as' => 'items.update',
+    'uses' => 'ItemsController@update'
+]);
+
+Route::get('item-locator/items/{id}/delete', [
+    'as' => 'items.delete',
+    'uses' => 'ItemsController@delete'
+]);
+Route::delete('item-locator/items/{id}', [
+    'as' => 'items.destroy',
+    'uses' => 'ItemsController@destroy'
+]);
+
+Route::get('item-locator/items/{id}', [
+    'as'   => 'items.show',
+    'uses' => 'ItemsController@show'
 ]);
 
 Route::controllers([
