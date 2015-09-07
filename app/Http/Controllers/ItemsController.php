@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Item;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use App\Http\Requests\ItemFormRequest;
 
 class ItemsController extends Controller
 {
@@ -40,7 +41,7 @@ class ItemsController extends Controller
      */
     public function add()
     {
-        $items = Item::where('childable', '=', 1)->get();
+        $items = ['0' => null] + Item::where('childable', '=', 1)->lists('name', 'id');
         return view('items.item_add')->with('items', $items);
         
     }
@@ -50,21 +51,23 @@ class ItemsController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ItemFormRequest $request)
     {
         $data = $request->input();
-    	$data['childable'] = empty($data['childable']) ? 0 : 1;
+    	$data['childable'] = empty($data['childable']) ? false : true;
+    	if(empty($data['quantity'])) {
+    		$data['quantity'] = 1;
+    	}
         //Debug
         // dd($data);
         Item::create([
         	'name' => $data['name'],
+        	'quantity' => $data['quantity'],
         	'parent_id' => $data['parent_id'],
         	'parent_name' => $data['parent_name'],
         	'location_id' => $data['location_id'],
         	'location_name' => $data['location_name'],
-        	// TODO: debug this value
-        	// 'childable' => 1
-        	// 'childable' => $data['childable']
+        	'childable' => $data['childable']
     	]);
     	return redirect()->route('items.add');
     }
@@ -77,10 +80,8 @@ class ItemsController extends Controller
      */
     public function show($id)
     {
-        
-        //
-        
-        
+        $item = Item::find($id);
+        return view('items.item_show')->with('item', $item);
     }
     
     /**
@@ -91,10 +92,9 @@ class ItemsController extends Controller
      */
     public function edit($id)
     {
-        
-        //
-        
-        
+        $items = ['0' => null] + Item::where('childable', '=', 1)->lists('name', 'id');
+        $item = Item::find($id);
+        return view('items.item_edit', compact('items', 'item'));
     }
     
     /**
@@ -103,14 +103,40 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, ItemFormRequest $request)
     {
-        
-        //
-        
-        
+        $item = Item::find($id);
+        $data = $request->input();
+    	$data['childable'] = empty($data['childable']) ? false : true;
+    	if(empty($data['quantity'])) {
+    		$data['quantity'] = 1;
+    	}
+        //Debug
+        // dd($data);
+        $item->update([
+        	'name' => $data['name'],
+        	'quantity' => $data['quantity'],
+        	'parent_id' => $data['parent_id'],
+        	'parent_name' => $data['parent_name'],
+        	'location_id' => $data['location_id'],
+        	'location_name' => $data['location_name'],
+        	'childable' => $data['childable']
+    	]);
+        return redirect()->route('items.index');
     }
     
+    /**
+     * Show the form for deleting the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function delete($id)
+    {
+        $item = Item::find($id);
+        return view('items.item_delete', compact('item'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -119,9 +145,8 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        
-        //
-        
-        
+        $item = Item::find($id);
+        $item->delete();
+        return redirect()->route('items.index');
     }
 }
