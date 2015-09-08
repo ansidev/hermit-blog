@@ -20,8 +20,8 @@
                     <tbody>
                         @foreach ($items as $item)
                         <tr>
-                            <td><a href="{{ route('items.show', $item->id) }}" class="btn btn-default">#{{ $item->id }}</a></td>
-                            <td>{{ $item->name }}</td>
+                            <td><a href="{{ route('items.show', $item->id) }}" class="btn btn-default">#<?php printf('%03d', $item->id); ?></a></td>
+                            <td title="{{ $item->name }}">{{ str_limit($item->name, $limit = 40, $end = '...') }}</td>
                             <td>{{ $item->quantity }}</td>
                             <td>{{ $item->parent_name }}</td>
                             <td>{{ $item->location_name }}</td>
