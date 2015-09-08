@@ -61,15 +61,16 @@ class ItemsController extends Controller
         //Debug
         // dd($data);
         Item::create([
-        	'name' => $data['name'],
-        	'quantity' => $data['quantity'],
-        	'parent_id' => $data['parent_id'],
-        	'parent_name' => $data['parent_name'],
-        	'location_id' => $data['location_id'],
-        	'location_name' => $data['location_name'],
-        	'childable' => $data['childable']
-    	]);
-    	return redirect()->route('items.add');
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'quantity' => $data['quantity'],
+            'parent_id' => $data['parent_id'],
+            'parent_name' => $data['parent_name'],
+            'location_id' => $data['location_id'],
+            'location_name' => $data['location_name'],
+            'childable' => $data['childable']
+        ]);
+        return redirect()->route('items.add');
     }
     
     /**
@@ -113,15 +114,16 @@ class ItemsController extends Controller
     	}
         //Debug
         // dd($data);
-        $item->update([
-        	'name' => $data['name'],
-        	'quantity' => $data['quantity'],
-        	'parent_id' => $data['parent_id'],
-        	'parent_name' => $data['parent_name'],
-        	'location_id' => $data['location_id'],
-        	'location_name' => $data['location_name'],
-        	'childable' => $data['childable']
-    	]);
+		$item->update([
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'quantity' => $data['quantity'],
+            'parent_id' => $data['parent_id'],
+            'parent_name' => $data['parent_name'],
+            'location_id' => $data['location_id'],
+            'location_name' => $data['location_name'],
+            'childable' => $data['childable']
+		]);
         return redirect()->route('items.index');
     }
     
