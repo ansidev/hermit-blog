@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <h1>All Items <a href="{{ route('items.add') }}" class="btn btn-success">Add new</a></h1>
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" id="items-index">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -38,4 +38,14 @@
         </div>
     </div>
 </div>
+@stop
+@section('script')
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#items-index').DataTable();
+    } );
+</script>
 @stop
