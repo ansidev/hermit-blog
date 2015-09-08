@@ -5,6 +5,10 @@
     {!! Form::text('name', null, [ 'id' => 'name', 'class' => 'form-control', 'placeholder' => 'Item name', 'required' => 'true']) !!}
 </div>
 <div class="form-group">
+    {!! Form::label('description') !!}
+    {!! Form::text('description', null, [ 'id' => 'description', 'class' => 'form-control', 'placeholder' => 'Item description']) !!}
+</div>
+<div class="form-group">
     {!! Form::label('quantity') !!}
     {!! Form::input('number', 'quantity', null, [ 'id' => 'quantity', 'class' => 'form-control', 'placeholder' => 'Number of item', 'min' => '1', 'step' => '1']) !!}
 </div>

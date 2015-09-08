@@ -16,6 +16,7 @@ class CreateItemsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
+			$table->string('description')->nullable();
 			$table->integer('quantity')->default(1);
 			$table->integer('user_id');
 			$table->integer('location_id')->nullable();
