@@ -10,7 +10,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Quantity</th>
+                            <th>SL</th>
                             <th>Group</th>
                             <th>Location</th>
                             <th>Date Added</th>
@@ -20,13 +20,13 @@
                     <tbody>
                         @foreach ($items as $item)
                         <tr>
-                            <td><a href="{{ route('items.show', $item->id) }}" class="btn btn-default">#<?php printf('%03d', $item->id); ?></a></td>
+                            <td style="width:1px"><a href="{{ route('items.show', $item->id) }}" class="btn btn-default">#<?php printf('%03d', $item->id); ?></a></td>
                             <td title="{{ $item->name }}">{{ str_limit($item->name, $limit = 40, $end = '...') }}</td>
-                            <td>{{ $item->quantity }}</td>
+                            <td style="width:1px">{{ $item->quantity }}</td>
                             <td>{{ $item->parent_name }}</td>
                             <td>{{ $item->location_name }}</td>
                             <td>{{ $item->created_at }}</td>
-                            <td>
+                            <td style="min-width:142px">
                                 <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit</a>
                                 <a href="{{ route('items.delete', $item->id) }}" class="btn btn-danger">Delete</a>
                             </td>
