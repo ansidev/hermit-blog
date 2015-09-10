@@ -24,10 +24,10 @@ class ItemFormRequest extends Request
         return [
         	'name' => 'required',
         	'parent_id' => 'required|numeric',
-        	'parent_name' => 'alpha',
+        	// 'parent_name' => 'alpha',
         	'location_id' => 'numeric',
         	// 'location_name' => 'regex:/^[A-Za-z0-9 ]+$/',
-        	'childable' => 'boolean'
+            // 'childable' => 'boolean',
     	];
     }
 }
