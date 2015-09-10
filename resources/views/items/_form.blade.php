@@ -20,7 +20,7 @@
 <div class="form-group">
     {!! Form::label('parent_id', 'Group') !!}
     {!! Form::hidden('parent_name', null, ['id' => 'parent_name', 'class' => 'form-control', 'placeholder' => 'Parent name']) !!}
-    {!! Form::select('parent_id', $items, null, ['id' => 'parent_id', 'class' => 'form-control', 'data-bind' => 'parent_name']) !!}
+    {!! Form::select('parent_id', $items, null, ['id' => 'parent_id', 'class' => 'form-control']) !!}
 {{--     <select name="parent_id" id="parent_id" class="form-control">
         <option value="0">None</option>
         @foreach ($items as $i)
@@ -29,9 +29,9 @@
     </select>
  --}}</div>
 <div class="form-group" id="location_input">
-    <label for="location_name">Location</label>
-    <input type="hidden" name="location_id" id="location_id" class="form-control" placeholder="Location name">
-    <input type="text" name="location_name" id="location_name" class="form-control" placeholder="Location name">
+    {!! Form::label('location_name', 'Location') !!}
+    {!! Form::hidden('location_id', null, ['id' => 'location_id', 'class' => 'form-control', 'placeholder' => 'Location name']) !!}
+    {!! Form::text('location_name', null, ['id' => 'location_name', 'class' => 'form-control', 'placeholder' => 'Location name']) !!}
 </div>
 <button type="submit" class="btn btn-primary">{{ $button_name }}</button>
 <a href="{{ route('items.index') }}" class="btn btn-success">Cancel</a>
