@@ -1,0 +1,11 @@
+{
+  "name": "hermit-blog",
+  "description": "Hermit Blog",
+  "scripts": {
+  },
+  "env": {
+  },
+  "addons": [
+
+  ]
+}
